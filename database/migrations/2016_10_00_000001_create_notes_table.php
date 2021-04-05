@@ -43,13 +43,13 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->text('content');
             $table->morphs('noteable');
-            $table->unsignedBigInteger('author_id')->nullable();
+            $table->uuid('author_id')->nullable();
             $table->timestamps();
 
             $table->foreign('author_id')
-                  ->references('id')
-                  ->on((string) config('notes.authors.table', 'users'))
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on((string) config('notes.authors.table', 'users'))
+                ->onDelete('cascade');
         });
     }
 }

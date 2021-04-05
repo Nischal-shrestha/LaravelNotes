@@ -16,7 +16,7 @@ use Illuminate\Support\Arr;
  * @property  string                               content
  * @property  int                                  noteable_id
  * @property  string                               noteable_type
- * @property  int                                  author_id
+ * @property  String                               author_id
  * @property  \Carbon\Carbon                       created_at
  * @property  \Carbon\Carbon                       updated_at
  *
@@ -58,7 +58,7 @@ class Note extends PrefixedModel
     protected $casts = [
         'id'          => 'integer',
         'noteable_id' => 'integer',
-        'author_id'   => 'integer',
+        'author_id'   => 'string', //for uuid support
     ];
 
     /* -----------------------------------------------------------------
@@ -77,7 +77,7 @@ class Note extends PrefixedModel
 
         $config = config('notes.database', []);
 
-        $this->setConnection(Arr::get($config, 'connection'));
+        // $this->setConnection(Arr::get($config, 'connection'));
         $this->setPrefix(Arr::get($config, 'prefix'));
         $this->setTable(Arr::get($config, 'table', 'notes'));
     }

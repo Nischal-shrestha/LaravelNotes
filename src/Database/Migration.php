@@ -23,7 +23,7 @@ abstract class Migration extends BaseMigration
      */
     public function __construct()
     {
-        $this->setConnection(config('notes.database.connection'));
+        // $this->setConnection(config('notes.database.connection'));
         $this->setPrefix(config('notes.database.prefix'));
     }
 }

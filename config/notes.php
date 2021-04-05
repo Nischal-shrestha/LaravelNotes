@@ -8,8 +8,6 @@ return [
      */
 
     'database' => [
-        'connection' => env('DB_CONNECTION', 'mysql'),
-
         'prefix'     => null,
     ],
 
@@ -20,7 +18,7 @@ return [
 
     'authors' => [
         'table' => 'users',
-        'model' => App\User::class,
+        'model' => App\Models\User::class,
     ],
 
     'notes' => [
